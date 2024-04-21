@@ -24,7 +24,7 @@ async fn main() {
     let uri = std::env::var("SERV_IP").unwrap_or_else(|_| String::from("127.0.0.1"));
     let address = uri.to_owned() + ":" + port.as_str();
 
-    let app: Router = router::serve();
+    let app: Router = router::serve().await;
     let listener = TcpListener::bind(address)
         .await
         .unwrap();

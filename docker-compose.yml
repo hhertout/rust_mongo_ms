@@ -7,19 +7,19 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 4000:4000
+      - "4000:4000"
     volumes:
       - .:/app
     env_file:
       - .env
     depends_on:
-      - mongo-db
+      - mongo_db
 
-  mongo-db:
+  mongo_db:
     image: mongo:7.0.9-rc0
     restart: always
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - v_mongo:/data/db
     env_file:
